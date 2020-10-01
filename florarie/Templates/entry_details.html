@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3 align="center">Floare</h3>
+
+<h2><img src="{% static produs.poza.url %}"></h2>
+
+<h3 style="padding-left:60px;">
+    <table>
+        <tr><td> Nume: </td><td>{{produs.nume}}</td></tr>
+        <tr>
+            {% if produs.nume == produs_redus.nume %}
+                <td> Pret redus: </td><td>{{pret_redus|cut:".0"}}</td><td>(pret intreg: {{produs.pret|cut:".0"}})</td>
+            {% else %}
+                <td> Pret: </td><td>{{produs.pret|cut:".0"}}</td>
+            {% endif %}
+        </tr>
+        <tr><td> Descriere: </td><td>{{produs.descriere}}</td></tr>
+        <tr><td> Stoc: </td><td>{{produs.stoc}}</td></tr>
+    </table>
+</h3>
+
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Listare produse:</h3>
+
+{% for floare in produse %}
+<table align="center">
+    <tr>
+        <td>
+            {% if produs_redus.nume != floare.nume %}
+            <h3>Floare: <a href="{% url 'entry_details' floare.id %}">{{floare.nume}}</a> la {{floare.pret|cut:".0"}} lei</h3>
+            {% else %}
+            <h3>Floare: <a href="{% url 'entry_details' floare.id %}">{{floare.nume}}</a> la pret redus: {{pret_redus|cut:".0"}} lei (pret intreg: {{floare.pret|cut:".0"}} lei)</h3>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+{% endfor %}
+
+{% endblock content %}

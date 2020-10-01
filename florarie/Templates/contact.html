@@ -1,0 +1,18 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Contact</h3>
+
+<h3>
+    <table align="center">
+        <form method="post" id="contact_form" role="form">
+            {% csrf_token %}
+            {{ form.as_table }}
+        </form>
+    </table>
+</h3>
+<button type="submit" form="contact_form">Trimite</button>
+
+{% endblock content %}

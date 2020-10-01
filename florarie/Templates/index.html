@@ -1,0 +1,9 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Promotii:</h3>
+<h2>Azi promotie: <a href="{% url 'entry_details' produs_redus.id %}">{{produs_redus.nume}}</a> la {{pret_redus|cut:".0"}} lei (pret intreg: {{pret_intreg|cut:".0"}})</h2>
+
+{% endblock content %}
